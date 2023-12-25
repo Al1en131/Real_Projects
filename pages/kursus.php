@@ -35,6 +35,24 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <script>
+  function confirmDelete(id) {
+    Swal.fire({
+      title: 'Apakah anda yakin?',
+      text: 'Anda tidak akan dapat mengembalikan data yang sudah dihapus',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // If the user clicks "Yes", proceed with the deletion
+        window.location.href = 'delete_kursus.php?id=' + id;
+      }
+    });
+  }
+</script>
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -57,32 +75,26 @@
              
                 </div>
                 <div class="ms-auto d-flex">
-                 
-                  <a type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center me-2" href="add_kursus.php">
+                  <div class="input-group input-group-sm ms-auto me-2 mb-3">
+                    <span class="input-group-text text-body">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
+                      </svg>
+                    </span>
+                    <input type="text" class="form-control form-control-sm" placeholder="Search" style="font-size:10.5px;">
+                  </div>
+                  <a type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center mb-3 me-2" href="add_kursus.php" style="width: 220px;">
                     <span class="btn-inner--icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16" style="margin-right:8px;">
   <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
 </svg>
                     </span>
-                    <span class="btn-inner--text">Tambah Kursus</span>
-                  </a>
+                    <span class="btn-inner--text" style="font-size:10.5px;">Tambah Kursus</span>
+</a>
                 </div>
-              </div>
-            </div>
-            <div class="card-body px-0 py-0">
-              <div class="border-bottom py-3 px-3 d-sm-flex align-items-center">
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-             
-                </div>
-                <div class="input-group w-sm-25 ms-auto">
-                  <span class="input-group-text text-body">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
-                    </svg>
-                  </span>
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-              </div>
+</div>
+</div>
+
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead class="bg-gray-100">
@@ -111,10 +123,12 @@
         <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z'/>
       </svg></i></a> 
-        | <a href='delete_kursus.php?id=$user_data[id]'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-        <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z'/>
-        <path d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z'/>
-      </svg></a></td></tr></tbody>";
+        |  <a href='javascript:void(0);' onclick='confirmDelete($user_data[id]);'>
+        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
+          <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z'/>
+          <path d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z'/>
+        </svg>
+      </a></td></tr></tbody>";
         $i++;
     }
     ?>
@@ -146,6 +160,9 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+  <!-- Include SweetAlert library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
